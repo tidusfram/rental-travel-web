@@ -1,0 +1,1798 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VELOX | Sewa Mobil Mewah & Paket Wisata Eksklusif</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <style>
+    :root {
+      --bg-dark: #090a0f;
+      --bg-surface: #12141c;
+      --bg-card: #181b26;
+      --bg-card-hover: #1f2333;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(234, 179, 8, 0.3);
+      --accent-gold: #f59e0b;
+      --accent-gold-light: #fbbf24;
+      --accent-cyan: #06b6d4;
+      --accent-emerald: #10b981;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      --shadow-glow: 0 0 30px rgba(245, 158, 11, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Modern Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-dark);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2a2e40;
+      border-radius: var(--radius-full);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent-gold);
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Background Glow Effects */
+    .ambient-glow {
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245, 158, 11, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+      filter: blur(80px);
+    }
+    .glow-1 { top: -200px; left: -100px; }
+    .glow-2 { top: 40%; right: -200px; background: radial-gradient(circle, rgba(6, 182, 212, 0.07) 0%, rgba(0, 0, 0, 0) 70%); }
+
+    /* Navigation Bar */
+    header {
+      position: sticky;
+      top: 16px;
+      z-index: 100;
+      margin-bottom: -72px;
+    }
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 28px;
+      background: rgba(18, 20, 28, 0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-full);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--accent-gold), #b45309);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #000;
+      font-weight: 800;
+      font-size: 20px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .brand-text h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    .brand-text span {
+      color: var(--accent-gold);
+    }
+    .brand-tag {
+      font-size: 10px;
+      color: var(--text-muted);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      display: block;
+      margin-top: -3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
+    .nav-links a:hover {
+      color: var(--text-main);
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-gold);
+      transition: var(--transition);
+    }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .btn-wa-header {
+      background: #25d366;
+      color: #000;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    }
+    .btn-wa-header:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      padding: 170px 0 100px;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid var(--border-accent);
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent-gold-light);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+    }
+    .hero-title {
+      font-size: 52px;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -1.5px;
+      margin-bottom: 20px;
+    }
+    .hero-title span.highlight {
+      background: linear-gradient(135deg, #fff 30%, var(--accent-gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-subtitle {
+      font-size: 17px;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      max-width: 540px;
+    }
+    .hero-metrics {
+      display: flex;
+      gap: 36px;
+      border-top: 1px solid var(--border-color);
+      padding-top: 28px;
+      margin-top: 20px;
+    }
+    .metric-item h4 {
+      font-size: 28px;
+      font-weight: 800;
+      font-family: 'Space Grotesk', sans-serif;
+      color: var(--text-main);
+    }
+    .metric-item p {
+      font-size: 13px;
+      color: var(--text-dim);
+      font-weight: 500;
+    }
+
+    /* Hero Booking Card / Interactive Calculator Widget */
+    .calculator-card {
+      background: rgba(24, 27, 38, 0.8);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+      position: relative;
+    }
+    .calculator-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-gold), var(--accent-cyan));
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
+    .card-head {
+      margin-bottom: 20px;
+    }
+    .card-head h3 {
+      font-size: 20px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .card-head p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 8px;
+    }
+    .custom-select, .custom-input {
+      width: 100%;
+      background: #0f1118;
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 13px 16px;
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+      transition: var(--transition);
+    }
+    .custom-select:focus, .custom-input:focus {
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
+    }
+
+    .service-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .radio-pill {
+      cursor: pointer;
+      position: relative;
+    }
+    .radio-pill input {
+      display: none;
+    }
+    .radio-pill .pill-content {
+      padding: 12px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      background: #0f1118;
+      font-size: 13px;
+      font-weight: 600;
+      text-align: center;
+      color: var(--text-muted);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .radio-pill input:checked + .pill-content {
+      border-color: var(--accent-gold);
+      background: rgba(245, 158, 11, 0.1);
+      color: var(--accent-gold-light);
+    }
+    .pill-sub {
+      font-size: 10px;
+      color: var(--text-dim);
+      font-weight: 400;
+    }
+
+    .duration-control {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn-step {
+      width: 44px;
+      height: 44px;
+      background: #0f1118;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      color: var(--text-main);
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+    .btn-step:hover {
+      background: var(--accent-gold);
+      color: #000;
+    }
+    .duration-val {
+      flex: 1;
+      text-align: center;
+      background: #0f1118;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 11px;
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .price-summary {
+      background: rgba(15, 17, 24, 0.9);
+      border: 1px dashed rgba(245, 158, 11, 0.4);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      margin: 22px 0 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .price-label span {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-dim);
+    }
+    .price-label strong {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    .total-amount {
+      font-size: 24px;
+      font-weight: 800;
+      font-family: 'Space Grotesk', sans-serif;
+      color: var(--accent-gold-light);
+    }
+
+    .btn-submit-calc {
+      width: 100%;
+      background: linear-gradient(135deg, var(--accent-gold), #d97706);
+      color: #000;
+      border: none;
+      padding: 15px;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: var(--transition);
+      box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
+    }
+    .btn-submit-calc:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(245, 158, 11, 0.5);
+    }
+
+    /* Section Shared Styles */
+    section {
+      padding: 90px 0;
+      position: relative;
+      z-index: 1;
+    }
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 56px;
+    }
+    .section-tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent-gold);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: 38px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 14px;
+    }
+    .section-desc {
+      font-size: 16px;
+      color: var(--text-muted);
+    }
+
+    /* Category Filter Tabs */
+    .filter-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 10px 22px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--text-main);
+      color: #000;
+      border-color: var(--text-main);
+    }
+
+    /* Cars Grid */
+    .fleet-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 28px;
+    }
+    .car-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .car-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(245, 158, 11, 0.4);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    }
+    .car-thumb {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+      background: #0f1118;
+    }
+    .car-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .car-card:hover .car-thumb img {
+      transform: scale(1.06);
+    }
+    .car-type-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(15, 17, 24, 0.85);
+      backdrop-filter: blur(8px);
+      padding: 5px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--accent-gold-light);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .car-year-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: #34d399;
+      padding: 5px 10px;
+      border-radius: var(--radius-sm);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .car-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .car-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 14px;
+    }
+    .car-header h3 {
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .car-header .car-brand {
+      font-size: 12px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+    }
+
+    .car-specs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .spec-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .spec-item i {
+      color: var(--accent-gold);
+    }
+
+    .car-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+    }
+    .car-price p {
+      font-size: 11px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .car-price h4 {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-main);
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .car-price span {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-muted);
+    }
+
+    .btn-book-car {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 10px 18px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 13px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .btn-book-car:hover {
+      background: var(--accent-gold);
+      color: #000;
+      border-color: var(--accent-gold);
+    }
+
+    /* Travel Packages Section */
+    .travel-section {
+      background: #0d0f17;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+    .tour-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .tour-card {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      height: 380px;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
+    .tour-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .tour-card:hover img {
+      transform: scale(1.08);
+    }
+    .tour-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(9, 10, 15, 0.1) 0%, rgba(9, 10, 15, 0.95) 90%);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .tour-duration {
+      display: inline-block;
+      background: rgba(245, 158, 11, 0.25);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      color: var(--accent-gold-light);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      margin-bottom: 10px;
+      width: fit-content;
+    }
+    .tour-overlay h3 {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+    .tour-overlay p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+    .tour-pricing {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 12px;
+    }
+    .tour-price-val {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .btn-tour-book {
+      background: #fff;
+      color: #000;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .btn-tour-book:hover {
+      background: var(--accent-gold);
+    }
+
+    /* Advantages Section */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .feature-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 30px 24px;
+      transition: var(--transition);
+    }
+    .feature-box:hover {
+      border-color: rgba(245, 158, 11, 0.4);
+      transform: translateY(-4px);
+    }
+    .feature-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-sm);
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid var(--border-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-gold);
+      margin-bottom: 20px;
+    }
+    .feature-box h4 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .feature-box p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Testimonials Section */
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .testi-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 28px;
+    }
+    .stars {
+      color: var(--accent-gold);
+      display: flex;
+      gap: 4px;
+      margin-bottom: 14px;
+    }
+    .testi-card p {
+      font-size: 14px;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .testi-user {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .user-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #2a2e40;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--accent-gold);
+    }
+    .user-info h5 {
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .user-info span {
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+
+    /* FAQ Accordion */
+    .faq-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      margin-bottom: 12px;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .faq-item.active {
+      border-color: rgba(245, 158, 11, 0.4);
+    }
+    .faq-question {
+      padding: 18px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 15px;
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      padding: 0 22px;
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .faq-item.active .faq-answer {
+      padding-bottom: 20px;
+    }
+
+    /* Footer */
+    footer {
+      background: #06070a;
+      border-top: 1px solid var(--border-color);
+      padding: 80px 0 30px;
+      position: relative;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+    .footer-col h4 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    .footer-col p {
+      color: var(--text-muted);
+      font-size: 13px;
+      margin-bottom: 18px;
+      line-height: 1.6;
+    }
+    .footer-links {
+      list-style: none;
+    }
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 13px;
+      transition: var(--transition);
+    }
+    .footer-links a:hover {
+      color: var(--accent-gold);
+    }
+    .contact-line {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: var(--text-muted);
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+    .contact-line i {
+      color: var(--accent-gold);
+      margin-top: 3px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+
+    /* Floating WhatsApp Button */
+    .floating-wa {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 60px;
+      height: 60px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
+      z-index: 999;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .floating-wa:hover {
+      transform: scale(1.1);
+      box-shadow: 0 15px 40px rgba(37, 211, 102, 0.7);
+    }
+
+    /* Modal Booking Direct */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      padding: 20px;
+    }
+    .modal-backdrop.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .modal-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius-md);
+      max-width: 500px;
+      width: 100%;
+      padding: 30px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 768px) {
+      .hero-title { font-size: 38px; }
+      .fleet-grid { grid-template-columns: 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Ambience -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <!-- Header / Navigation -->
+  <header>
+    <div class="container">
+      <nav class="nav-wrapper">
+        <a href="#" class="brand-logo">
+          <div class="logo-icon">V</div>
+          <div class="brand-text">
+            <h1>VELOX<span>.</span></h1>
+            <span class="brand-tag">Luxury Travel & Fleet</span>
+          </div>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#armada">Armada Mobil</a></li>
+          <li><a href="#paket-wisata">Paket Wisata</a></li>
+          <li><a href="#kalkulator">Hitung Tarif</a></li>
+          <li><a href="#keunggulan">Keunggulan</a></li>
+          <li><a href="#testimoni">Ulasan</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <a href="https://wa.me/6281234567890?text=Halo%20Admin%20VELOX,%20saya%20ingin%20tanya%20sewa%20mobil%20atau%20paket%20wisata" target="_blank" class="btn-wa-header">
+            <i data-lucide="message-circle" style="width: 16px; height: 16px;"></i>
+            <span>Chat WhatsApp</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="kalkulator">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <i data-lucide="sparkles" style="width: 14px; height: 14px;"></i>
+            Layanan Eksekutif #1 Indonesia
+          </div>
+          <h2 class="hero-title">
+            Jelajahi Setiap Sudut dengan <span class="highlight">Kenyamanan Kelas Satu.</span>
+          </h2>
+          <p class="hero-subtitle">
+            Penyedia sewa mobil mewah, MPV keluarga premium, dan paket perjalanan wisata terpadu dengan standar kebersihan tinggi serta pengemudi berstandar profesional.
+          </p>
+
+          <div class="hero-metrics">
+            <div class="metric-item">
+              <h4>50+</h4>
+              <p>Unit Mobil Terbaru</p>
+            </div>
+            <div class="metric-item">
+              <h4>1.200+</h4>
+              <p>Pelanggan Puas</p>
+            </div>
+            <div class="metric-item">
+              <h4>4.9 / 5</h4>
+              <p>Rating Bintang Google</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Booking Calculator -->
+        <div class="calculator-card">
+          <div class="card-head">
+            <h3>
+              <i data-lucide="calculator" style="color: var(--accent-gold); width: 22px; height: 22px;"></i>
+              Kalkulator Sewa Cepat
+            </h3>
+            <p>Hitung estimasi biaya & langsung konfirmasi ke admin</p>
+          </div>
+
+          <form id="rentalCalcForm" onsubmit="handleQuickBooking(event)">
+            <!-- Pilih Mobil -->
+            <div class="form-group">
+              <label for="carSelect">Pilih Kendaraan</label>
+              <select id="carSelect" class="custom-select" onchange="calculateRentalPrice()">
+                <option value="650000|Toyota Innova Reborn 2024">Toyota Innova Reborn 2024 (Rp 650.000/hari)</option>
+                <option value="900000|Toyota Innova Zenix Hybrid 2025" selected>Toyota Innova Zenix Hybrid 2025 (Rp 900.000/hari)</option>
+                <option value="1200000|Toyota Fortuner GR Sport 2024">Toyota Fortuner GR Sport (Rp 1.200.000/hari)</option>
+                <option value="1250000|Mitsubishi Pajero Sport Dakar 2024">Mitsubishi Pajero Sport Dakar (Rp 1.250.000/hari)</option>
+                <option value="1400000|Toyota HiAce Premio Luxury 2024">Toyota HiAce Premio Luxury (Rp 1.400.000/hari)</option>
+                <option value="2500000|Toyota Alphard Facelift VIP 2024">Toyota Alphard Facelift VIP (Rp 2.500.000/hari)</option>
+                <option value="1600000|Hyundai Ioniq 5 Electric 2024">Hyundai Ioniq 5 Electric (Rp 1.600.000/hari)</option>
+              </select>
+            </div>
+
+            <!-- Tipe Layanan -->
+            <div class="form-group">
+              <label>Opsi Pengemudi</label>
+              <div class="service-options">
+                <label class="radio-pill">
+                  <input type="radio" name="serviceType" value="0" checked onchange="calculateRentalPrice()">
+                  <div class="pill-content">
+                    <span>Lepas Kunci</span>
+                    <span class="pill-sub">Self-drive mandiri</span>
+                  </div>
+                </label>
+                <label class="radio-pill">
+                  <input type="radio" name="serviceType" value="250000" onchange="calculateRentalPrice()">
+                  <div class="pill-content">
+                    <span>Dengan Sopir</span>
+                    <span class="pill-sub">+ Rp 250rb / hari</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Durasi Sewa -->
+            <div class="form-group">
+              <label>Durasi Pemakaian (Hari)</label>
+              <div class="duration-control">
+                <button type="button" class="btn-step" onclick="changeDays(-1)">-</button>
+                <div class="duration-val" id="daysCountText">1 Hari</div>
+                <button type="button" class="btn-step" onclick="changeDays(1)">+</button>
+              </div>
+            </div>
+
+            <!-- Tanggal & Lokasi -->
+            <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+              <div>
+                <label for="pickupDate">Tanggal Mulai</label>
+                <input type="date" id="pickupDate" class="custom-input" required>
+              </div>
+              <div>
+                <label for="pickupCity">Kota Jemput</label>
+                <select id="pickupCity" class="custom-select">
+                  <option value="Jakarta / Bandara Soetta">Jakarta (Soetta / Halim)</option>
+                  <option value="Surabaya / Juanda">Surabaya / Juanda</option>
+                  <option value="Malang / Batu">Malang / Batu</option>
+                  <option value="Yogyakarta / YIA">Yogyakarta / YIA</option>
+                  <option value="Bali / Ngurah Rai">Bali / Ngurah Rai</option>
+                  <option value="Bandung">Bandung</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Total Biaya Summary -->
+            <div class="price-summary">
+              <div class="price-label">
+                <span>Estimasi Total</span>
+                <strong id="summaryDetailText">1 Hari • Lepas Kunci</strong>
+              </div>
+              <div class="total-amount" id="totalPriceDisplay">Rp 900.000</div>
+            </div>
+
+            <button type="submit" class="btn-submit-calc">
+              <i data-lucide="check-circle-2" style="width: 18px; height: 18px;"></i>
+              Pesan Langsung via WhatsApp
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Armada Mobil (Fleet Section) -->
+  <section id="armada">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Pilihan Kendaraan</span>
+        <h2 class="section-title">Armada Premium Siap Jalan</h2>
+        <p class="section-desc">Semua kendaraan kami selalu melalui inspeksi 30 titik, servis berkala resmi, dan disterilkan sebelum serah terima.</p>
+      </div>
+
+      <!-- Category Filter -->
+      <div class="filter-tabs">
+        <button class="tab-btn active" onclick="filterFleet('all', this)">Semua Unit</button>
+        <button class="tab-btn" onclick="filterFleet('suv', this)">SUV Tangguh</button>
+        <button class="tab-btn" onclick="filterFleet('mpv', this)">MPV Keluarga</button>
+        <button class="tab-btn" onclick="filterFleet('luxury', this)">VIP & Mewah</button>
+        <button class="tab-btn" onclick="filterFleet('van', this)">Van Wisata</button>
+      </div>
+
+      <!-- Cars Grid -->
+      <div class="fleet-grid">
+
+        <!-- Mobil 1: Innova Zenix -->
+        <div class="car-card" data-category="mpv">
+          <div class="car-thumb">
+            <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=800&q=80" alt="Innova Zenix Hybrid">
+            <span class="car-type-badge">MPV Premium</span>
+            <span class="car-year-badge">2025</span>
+          </div>
+          <div class="car-body">
+            <div class="car-header">
+              <div>
+                <h3>Innova Zenix Hybrid</h3>
+                <span class="car-brand">Toyota</span>
+              </div>
+            </div>
+            <div class="car-specs">
+              <div class="spec-item"><i data-lucide="users" style="width: 15px;"></i> 7 Kursi</div>
+              <div class="spec-item"><i data-lucide="settings-2" style="width: 15px;"></i> Otomatis</div>
+              <div class="spec-item"><i data-lucide="zap" style="width: 15px;"></i> Hybrid EV</div>
+            </div>
+            <div class="car-footer">
+              <div class="car-price">
+                <p>Mulai Dari</p>
+                <h4>Rp 900rb <span>/ hari</span></h4>
+              </div>
+              <button class="btn-book-car" onclick="selectCarAndBook('Toyota Innova Zenix Hybrid 2025', 900000)">
+                Pilih Unit <i data-lucide="arrow-right" style="width: 14px;"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobil 2: Fortuner GR Sport -->
+        <div class="car-card" data-category="suv">
+          <div class="car-thumb">
+            <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80" alt="Toyota Fortuner GR Sport">
+            <span class="car-type-badge">SUV Adventure</span>
+            <span class="car-year-badge">2024</span>
+          </div>
+          <div class="car-body">
+            <div class="car-header">
+              <div>
+                <h3>Fortuner GR Sport 2.8</h3>
+                <span class="car-brand">Toyota</span>
+              </div>
+            </div>
+            <div class="car-specs">
+              <div class="spec-item"><i data-lucide="users" style="width: 15px;"></i> 7 Kursi</div>
+              <div class="spec-item"><i data-lucide="settings-2" style="width: 15px;"></i> Otomatis</div>
+              <div class="spec-item"><i data-lucide="fuel" style="width: 15px;"></i> Diesel Turbo</div>
+            </div>
+            <div class="car-footer">
+              <div class="car-price">
+                <p>Mulai Dari</p>
+                <h4>Rp 1.2jt <span>/ hari</span></h4>
+              </div>
+              <button class="btn-book-car" onclick="selectCarAndBook('Toyota Fortuner GR Sport 2024', 1200000)">
+                Pilih Unit <i data-lucide="arrow-right" style="width: 14px;"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobil 3: Alphard VIP -->
+        <div class="car-card" data-category="luxury">
+          <div class="car-thumb">
+            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80" alt="Toyota Alphard VIP">
+            <span class="car-type-badge">Executive VIP</span>
+            <span class="car-year-badge">2024</span>
+          </div>
+          <div class="car-body">
+            <div class="car-header">
+              <div>
+                <h3>Alphard Facelift Pilot Seat</h3>
+                <span class="car-brand">Toyota</span>
+              </div>
+            </div>
+            <div class="car-specs">
+              <div class="spec-item"><i data-lucide="users" style="width: 15px;"></i> 6 Kursi VIP</div>
+              <div class="spec-item"><i data-lucide="settings-2" style="width: 15px;"></i> CVT Luxury</div>
+              <div class="spec-item"><i data-lucide="shield-check" style="width: 15px;"></i> Captain Seat</div>
+            </div>
+            <div class="car-footer">
+              <div class="car-price">
+                <p>Mulai Dari</p>
+                <h4>Rp 2.5jt <span>/ hari</span></h4>
+              </div>
+              <button class="btn-book-car" onclick="selectCarAndBook('Toyota Alphard Facelift VIP 2024', 2500000)">
+                Pilih Unit <i data-lucide="arrow-right" style="width: 14px;"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobil 4: Pajero Sport Dakar -->
+        <div class="car-card" data-category="suv">
+          <div class="car-thumb">
+            <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&q=80" alt="Mitsubishi Pajero Sport Dakar">
+            <span class="car-type-badge">SUV Gagah</span>
+            <span class="car-year-badge">2024</span>
+          </div>
+          <div class="car-body">
+            <div class="car-header">
+              <div>
+                <h3>Pajero Sport Dakar Ultimate</h3>
+                <span class="car-brand">Mitsubishi</span>
+              </div>
+            </div>
+            <div class="car-specs">
+              <div class="spec-item"><i data-lucide="users" style="width: 15px;"></i> 7 Kursi</div>
+              <div class="spec-item"><i data-lucide="settings-2" style="width: 15px;"></i> Otomatis 8-Spd</div>
+              <div class="spec-item"><i data-lucide="sun" style="width: 15px;"></i> Sunroof</div>
+            </div>
+            <div class="car-footer">
+              <div class="car-price">
+                <p>Mulai Dari</p>
+                <h4>Rp 1.25jt <span>/ hari</span></h4>
+              </div>
+              <button class="btn-book-car" onclick="selectCarAndBook('Mitsubishi Pajero Sport Dakar 2024', 1250000)">
+                Pilih Unit <i data-lucide="arrow-right" style="width: 14px;"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobil 5: HiAce Premio -->
+        <div class="car-card" data-category="van">
+          <div class="car-thumb">
+            <img src="https://images.unsplash.com/photo-1464219789935-c2d9d9aba644?auto=format&fit=crop&w=800&q=80" alt="Toyota HiAce Premio">
+            <span class="car-type-badge">Grup & Wisata</span>
+            <span class="car-year-badge">2024</span>
+          </div>
+          <div class="car-body">
+            <div class="car-header">
+              <div>
+                <h3>HiAce Premio Luxury</h3>
+                <span class="car-brand">Toyota</span>
+              </div>
+            </div>
+            <div class="car-specs">
+              <div class="spec-item"><i data-lucide="users" style="width: 15px;"></i> 12 Kursi</div>
+              <div class="spec-item"><i data-lucide="settings-2" style="width: 15px;"></i> Manual 6-Spd</div>
+              <div class="spec-item"><i data-lucide="tv" style="width: 15px;"></i> Smart TV/Karaoke</div>
+            </div>
+            <div class="car-footer">
+              <div class="car-price">
+                <p>Mulai Dari</p>
+                <h4>Rp 1.4jt <span>/ hari</span></h4>
+              </div>
+              <button class="btn-book-car" onclick="selectCarAndBook('Toyota HiAce Premio Luxury 2024', 1400000)">
+                Pilih Unit <i data-lucide="arrow-right" style="width: 14px;"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobil 6: Hyundai Ioniq 5 -->
+        <div class="car-card" data-category="luxury">
+          <div class="car-thumb">
+            <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=800&q=80" alt="Hyundai Ioniq 5">
+            <span class="car-type-badge">Modern EV</span>
+            <span class="car-year-badge">2024</span>
+          </div>
+          <div class="car-body">
+            <div class="car-header">
+              <div>
+                <h3>Ioniq 5 Long Range</h3>
+                <span class="car-brand">Hyundai</span>
+              </div>
+            </div>
+            <div class="car-specs">
+              <div class="spec-item"><i data-lucide="users" style="width: 15px;"></i> 5 Kursi</div>
+              <div class="spec-item"><i data-lucide="settings-2" style="width: 15px;"></i> 1-Speed Reducer</div>
+              <div class="spec-item"><i data-lucide="battery-charging" style="width: 15px;"></i> 480 km Range</div>
+            </div>
+            <div class="car-footer">
+              <div class="car-price">
+                <p>Mulai Dari</p>
+                <h4>Rp 1.6jt <span>/ hari</span></h4>
+              </div>
+              <button class="btn-book-car" onclick="selectCarAndBook('Hyundai Ioniq 5 Electric 2024', 1600000)">
+                Pilih Unit <i data-lucide="arrow-right" style="width: 14px;"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Travel & Tour Packages -->
+  <section id="paket-wisata" class="travel-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Paket Wisata Eksklusif</span>
+        <h2 class="section-title">Destinasi Populer Pilihan</h2>
+        <p class="section-desc">Nikmati liburan santai tanpa pusing rute dan itinerary. Sudah termasuk mobil, supir pemandu lokal, tiket masuk, dan dokumentasi.</p>
+      </div>
+
+      <div class="tour-grid">
+        <!-- Tour 1 -->
+        <div class="tour-card" onclick="bookTour('Bromo Midnight Sunrise & Kawah VIP')">
+          <img src="https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&w=800&q=80" alt="Bromo Tour">
+          <div class="tour-overlay">
+            <span class="tour-duration">1 Hari (Midnight Trip)</span>
+            <h3>Bromo Sunrise & Jeep 4x4</h3>
+            <p>Penanjakan Sunrise, Kawah Bromo, Pasir Berbisik & Bukit Teletubbies.</p>
+            <div class="tour-pricing">
+              <span class="tour-price-val">Rp 450.000 / pax</span>
+              <a href="javascript:void(0)" class="btn-tour-book">Detail Tour</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tour 2 -->
+        <div class="tour-card" onclick="bookTour('Eksplorasi Nusa Penida & Pantai Bali')">
+          <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80" alt="Bali Tour">
+          <div class="tour-overlay">
+            <span class="tour-duration">3 Hari 2 Malam</span>
+            <h3>Bali & Nusa Penida Island</h3>
+            <p>Kelingking Beach, Broken Beach, Diamond Beach & sunset dinner Jimbaran.</p>
+            <div class="tour-pricing">
+              <span class="tour-price-val">Rp 2.100.000 / pax</span>
+              <a href="javascript:void(0)" class="btn-tour-book">Detail Tour</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tour 3 -->
+        <div class="tour-card" onclick="bookTour('Heritage Jogja & Merapi Lava Tour')">
+          <img src="https://images.unsplash.com/photo-1596402184320-417e7178b2cd?auto=format&fit=crop&w=800&q=80" alt="Yogyakarta Tour">
+          <div class="tour-overlay">
+            <span class="tour-duration">2 Hari 1 Malam</span>
+            <h3>Yogyakarta Heritage & Lava Tour</h3>
+            <p>Jeep Merapi, Candi Borobudur/Prambanan, HeHa Sky View & Malioboro.</p>
+            <div class="tour-pricing">
+              <span class="tour-price-val">Rp 1.150.000 / pax</span>
+              <a href="javascript:void(0)" class="btn-tour-book">Detail Tour</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tour 4 -->
+        <div class="tour-card" onclick="bookTour('Labuan Bajo Sailing Phinisi VIP')">
+          <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=800&q=80" alt="Labuan Bajo">
+          <div class="tour-overlay">
+            <span class="tour-duration">3 Hari 2 Malam</span>
+            <h3>Labuan Bajo Liveaboard Phinisi</h3>
+            <p>Pulau Padar, Komodo National Park, Pink Beach, & Manta Point Snorkeling.</p>
+            <div class="tour-pricing">
+              <span class="tour-price-val">Rp 3.850.000 / pax</span>
+              <a href="javascript:void(0)" class="btn-tour-book">Detail Tour</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Advantages Section -->
+  <section id="keunggulan">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Kenapa Memilih Kami</span>
+        <h2 class="section-title">Standar Layanan VIP Tanpa Kompromi</h2>
+        <p class="section-desc">Kenyamanan dan keselamatan perjalanan Anda adalah prioritas nomor satu kami.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-box">
+          <div class="feature-icon"><i data-lucide="shield-check"></i></div>
+          <h4>Perlindungan Asuransi All-Risk</h4>
+          <p>Seluruh unit kendaraan dilindungi asuransi komprehensif, memberi rasa aman dan tenang selama berkendara.</p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon"><i data-lucide="sparkles"></i></div>
+          <h4>Higienis & Selalu Harum</h4>
+          <p>Deep-cleaning dan sterilisasi kabin interior dilakukan sebelum setiap serah terima kendaraan ke tangan Anda.</p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon"><i data-lucide="clock"></i></div>
+          <h4>Layanan Darurat 24/7</h4>
+          <p>Dukungan tim teknis sigap 24 jam siap membantu jika terjadi kendala di jalan, lengkap dengan mobil pengganti.</p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon"><i data-lucide="user-check"></i></div>
+          <h4>Driver Berpengalaman</h4>
+          <p>Driver terlatih bersertifikasi, ramah, berpakaian rapi, dan menguasai rute tercepat serta spot kuliner lokal terbaik.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimoni" style="background: #0d0f17; border-top: 1px solid var(--border-color);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Ulasan Pelanggan</span>
+        <h2 class="section-title">Apa Kata Mereka?</h2>
+        <p class="section-desc">Pengalaman nyata dari para eksekutif, keluarga, dan wisatawan yang telah mempercayakan perjalanan mereka kepada VELOX.</p>
+      </div>
+
+      <div class="testi-grid">
+        <div class="testi-card">
+          <div class="stars">
+            <i data-lucide="star" style="fill: var(--accent-gold); width: 16px;"></i>
+            <i data-lucide="star" style="fill: var(--accent-gold); width: 16px;"></i>
+            <i data-lucide="star" style="fill: var(--accent-gold); width: 16px;"></i>
+            <i data-lucide="star" style="fill: var(--accent-gold); width: 16px;"></i>
+            <i data-lucide="star" style="fill: var(--accent-gold); width: 16px;"></i>
+          </div>
+          <p>"Sewa Innova Zenix untuk roadtrip keluarga ke Malang dan Bromo. Mobilnya wangi banget, tahun muda, AC dingin, dan konsumsi bensin hybridnya irit parah. Sangat puas!"</p>
+          <div class="testi-user">
+            <div class="user-avatar">DR</div>
+            <div class="user-info">
+              <h5>Dimas Rahardian</h5>
+              <span>Pengusaha - Jakarta</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="stars">
+            <i data-lucide="star" style="fill: var(--accent-gold); width: 16px;"></i>
+            <i data-lucide="star" style="fill: var(--accent-gold); width: 16px;"></i>
+            <i data-lucide="star" style="fill: var(--accent-gold); width: 16px;"></i>
+            <i data-lucide="star" style="fill: var(--accent-gold); width: 16px;"></i>
+            <i data-lucide="star" style="fill: var(--accent-gold); width: 16px;"></i>
+          </div>
+          <p>"Pakai Alphard untuk jemput tamu VIP dari luar negeri di bandara. Pelayanan driver sangat sopan, on-time 30 menit sebelum jadwal, dan mobil tampak kinclong mengkilap."</p>
+          <div class="testi-user">
+            <div class="user-avatar">SL</div>
+            <div class="user-info">
+              <h5>Siti Lestari</h5>
+              <span>Corporate Secretary - Surabaya</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="stars">
+            <i data-lucide="star" style="fill: var(--accent-gold); width: 16px;"></i>
+            <i data-lucide="star" style="fill: var(--accent-gold); width: 16px;"></i>
+            <i data-lucide="star" style="fill: var(--accent-gold); width: 16px;"></i>
+            <i data-lucide="star" style="fill: var(--accent-gold); width: 16px;"></i>
+            <i data-lucide="star" style="fill: var(--accent-gold); width: 16px;"></i>
+          </div>
+          <p>"Paket wisata Bromo-nya luar biasa rapi! Driver jemput tepat tengah malam di hotel, jeep-nya dapat posisi terdepan pas sunrise, fotografernya jago ambil angle foto."</p>
+          <div class="testi-user">
+            <div class="user-avatar">BW</div>
+            <div class="user-info">
+              <h5>Budi Wicaksono</h5>
+              <span>Traveler - Bandung</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Tanya Jawab</span>
+        <h2 class="section-title">Pertanyaan yang Sering Diajukan</h2>
+        <p class="section-desc">Informasi lengkap seputar persyaratan, sistem pembayaran, dan aturan sewa.</p>
+      </div>
+
+      <div class="faq-wrapper">
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Apa saja syarat untuk sewa mobil lepas kunci (tanpa supir)?</span>
+            <i data-lucide="chevron-down" style="width: 18px;"></i>
+          </div>
+          <div class="faq-answer">
+            Syarat cukup mudah: Foto KTP asli, SIM A yang masih berlaku, bukti tiket perjalanan/pesawat atau reservasi hotel, serta akun sosial media aktif untuk verifikasi kilat (hanya butuh 15 menit).
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Apakah mobil bisa diantar langsung ke Bandara atau Hotel?</span>
+            <i data-lucide="chevron-down" style="width: 18px;"></i>
+          </div>
+          <div class="faq-answer">
+            Bisa banget! Tim kami melayani pengantaran dan serah terima unit di Bandara, Stasiun Kereta, Hotel, maupun alamat rumah Anda di dalam kota secara tepat waktu.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Bagaimana jika kendaraan mengalami kendala teknis di jalan?</span>
+            <i data-lucide="chevron-down" style="width: 18px;"></i>
+          </div>
+          <div class="faq-answer">
+            Kami menyediakan hotline darurat 24/7. Tim teknis darurat kami akan segera meluncur ke lokasi, dan kami menyediakan mobil pengganti jika perbaikan memerlukan waktu lebih dari 1 jam.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Berapa batas waktu pemakaian sewa per hari?</span>
+            <i data-lucide="chevron-down" style="width: 18px;"></i>
+          </div>
+          <div class="faq-answer">
+            Untuk paket sewa per hari (24 Jam) dihitung penuh sejak jam serah terima kendaraan. Sedangkan untuk paket dengan pengemudi, standar durasi adalah 12-14 jam per hari.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="#" class="brand-logo" style="margin-bottom: 16px;">
+            <div class="logo-icon">V</div>
+            <div class="brand-text">
+              <h1>VELOX<span>.</span></h1>
+              <span class="brand-tag">Luxury Travel & Fleet</span>
+            </div>
+          </a>
+          <p>
+            Platform reservasi rental mobil modern dan biro perjalanan wisata terpercaya di Indonesia. Menghadirkan armada terkini, keamanan terjamin, dan pengalaman liburan tanpa repot.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigasi</h4>
+          <ul class="footer-links">
+            <li><a href="#armada">Armada Kendaraan</a></li>
+            <li><a href="#paket-wisata">Paket Wisata</a></li>
+            <li><a href="#kalkulator">Hitung Tarif Sewa</a></li>
+            <li><a href="#keunggulan">Standar Keamanan</a></li>
+            <li><a href="#testimoni">Ulasan Klien</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Armada Unggulan</h4>
+          <ul class="footer-links">
+            <li><a href="#armada">Toyota Innova Zenix</a></li>
+            <li><a href="#armada">Toyota Fortuner GR</a></li>
+            <li><a href="#armada">Toyota Alphard VIP</a></li>
+            <li><a href="#armada">Toyota HiAce Premio</a></li>
+            <li><a href="#armada">Hyundai Ioniq 5 EV</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Hubungi Kami</h4>
+          <div class="contact-line">
+            <i data-lucide="map-pin" style="width: 18px;"></i>
+            <span>Sentra Bisnis Graha Velox, Jl. Sudirman No. 88, Jakarta Selatan</span>
+          </div>
+          <div class="contact-line">
+            <i data-lucide="phone" style="width: 18px;"></i>
+            <span>+62 812-3456-7890 (24 Jam)</span>
+          </div>
+          <div class="contact-line">
+            <i data-lucide="mail" style="width: 18px;"></i>
+            <span>booking@veloxtravel.id</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 VELOX Luxury Travel & Rental. All rights reserved.</p>
+        <p>Designed with High-Precision Automotive Aesthetic</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Action -->
+  <a href="https://wa.me/6281234567890?text=Halo%20Admin%20VELOX,%20saya%20tertarik%20dengan%20layanan%20rental%20mobil%20/%20paket%20wisata." target="_blank" class="floating-wa" title="Konsultasi WhatsApp Cepat">
+    <i data-lucide="message-circle" style="width: 32px; height: 32px;"></i>
+  </a>
+
+  <!-- JavaScript Logic -->
+  <script>
+    // Inisialisasi Lucide Icons
+    lucide.createIcons();
+
+    // Default State Kalkulator
+    let rentalDays = 1;
+
+    // Set Default Tanggal Mulai ke Besok
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    const dateInput = document.getElementById('pickupDate');
+    if (dateInput) {
+      dateInput.value = tomorrow.toISOString().split('T')[0];
+    }
+
+    function changeDays(delta) {
+      rentalDays = Math.max(1, rentalDays + delta);
+      document.getElementById('daysCountText').innerText = rentalDays + ' Hari';
+      calculateRentalPrice();
+    }
+
+    function calculateRentalPrice() {
+      const carSelect = document.getElementById('carSelect');
+      const [baseDailyPrice, carName] = carSelect.value.split('|');
+      const driverOption = parseInt(document.querySelector('input[name="serviceType"]:checked').value);
+      
+      const pricePerDay = parseInt(baseDailyPrice) + driverOption;
+      const grandTotal = pricePerDay * rentalDays;
+
+      const driverLabel = driverOption > 0 ? "Dengan Sopir" : "Lepas Kunci";
+      document.getElementById('summaryDetailText').innerText = `${rentalDays} Hari • ${driverLabel}`;
+      document.getElementById('totalPriceDisplay').innerText = 'Rp ' + grandTotal.toLocaleString('id-ID');
+      
+      return { grandTotal, carName, driverLabel };
+    }
+
+    function handleQuickBooking(e) {
+      e.preventDefault();
+      const { grandTotal, carName, driverLabel } = calculateRentalPrice();
+      const pickupDate = document.getElementById('pickupDate').value;
+      const pickupCity = document.getElementById('pickupCity').value;
+
+      const message = `Halo Admin VELOX, saya ingin memesan sewa mobil:
+- *Unit*: ${carName}
+- *Opsi*: ${driverLabel}
+- *Durasi*: ${rentalDays} Hari
+- *Tgl Mulai*: ${pickupDate}
+- *Lokasi Jemput*: ${pickupCity}
+- *Estimasi Total*: Rp ${grandTotal.toLocaleString('id-ID')}
+
+Mohon informasi ketersediaan unitnya. Terima kasih!`;
+
+      const waUrl = `https://wa.me/6281234567890?text=${encodeURIComponent(message)}`;
+      window.open(waUrl, '_blank');
+    }
+
+    function selectCarAndBook(name, price) {
+      const select = document.getElementById('carSelect');
+      for (let i = 0; i < select.options.length; i++) {
+        if (select.options[i].value.includes(name)) {
+          select.selectedIndex = i;
+          break;
+        }
+      }
+      calculateRentalPrice();
+      
+      // Smooth scroll ke kalkulator
+      document.getElementById('kalkulator').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function bookTour(tourTitle) {
+      const msg = `Halo Admin VELOX, saya tertarik dengan paket wisata:
+*${tourTitle}*
+Bisa tolong kirimkan rincian itinerary dan ketersediaan jadwalnya? Terima kasih!`;
+      const waUrl = `https://wa.me/6281234567890?text=${encodeURIComponent(msg)}`;
+      window.open(waUrl, '_blank');
+    }
+
+    function filterFleet(category, btn) {
+      const buttons = document.querySelectorAll('.tab-btn');
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const cards = document.querySelectorAll('.car-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function toggleFaq(el) {
+      const item = el.parentElement;
+      const answer = item.querySelector('.faq-answer');
+      const isOpen = item.classList.contains('active');
+
+      // Tutup semua dulu
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('active');
+        i.querySelector('.faq-answer').style.maxHeight = null;
+      });
+
+      if (!isOpen) {
+        item.classList.add('active');
+        answer.style.maxHeight = answer.scrollHeight + "px";
+      }
+    }
+
+    // Hitung pertama kali saat load
+    calculateRentalPrice();
+  </script>
+</body>
+</html>
